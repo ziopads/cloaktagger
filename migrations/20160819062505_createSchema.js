@@ -40,7 +40,15 @@ exports.up = function(knex, Promise) {
 exports.down = function(knex, Promise) {
   return PromiseAll([
     knex.raw('drop table if exists users cascade')
+    knex.raw('drop table if exists roles cascade')
+    knex.raw('drop table if exists permissions cascade')
+    knex.raw('drop table if exists users_roles cascade')
+    knex.raw('drop table if exists roles_permissions cascade')
     knex.raw('drop table if exists games cascade')
+    knex.raw('drop table if exists gameEvents cascade')
+    knex.raw('drop table if exists eventTypes cascade')
+    knex.raw('drop table if exists games_gameEvents cascade')
+    knex.raw('drop table if exists gameEvents_eventTypes cascade')
     knex.raw('drop table if exists activePlayers cascade')
   ])
 };
